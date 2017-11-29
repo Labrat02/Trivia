@@ -1,0 +1,9 @@
+# git has a different opinion of line endings than rubocop
+# line endings are converted to match the system on pull/push
+Layout/EndOfLine:
+  Enabled: false
+#  EnforcedStyle: lf
+
+# I prefer double unless single needed
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

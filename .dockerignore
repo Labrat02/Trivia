@@ -1,0 +1,7 @@
+README.md
+docker-compose*
+Dockerfile
+.vscode
+.git
+tmp
+log

@@ -1,7 +1,11 @@
 version: '3'
 services:
-  # db:
-  #   image: mongodb
+  mongo_db:
+    image: mongo
+    ports: 
+      - "27017:27017"
+    volumes: 
+      - mongo-data:/data/db
   web:
     build: .
     image: labrat/trivia:debug
@@ -12,5 +16,7 @@ services:
       - "3000:3000"
       - "1234:1234"
       - "26162:26162"
-    # depends_on:
-    #   - db
+    depends_on:
+      - mongo_db
+volumes: 
+  mongo-data:      

@@ -4,11 +4,11 @@ A Ruby application build on top of the Rails framework for fun and learning.
 
 ## Decisions
 ```
-An explaination of some choices made during this project
+An explanation of some choices made during this project
 ```
 1. Will not use Front-End or Single Page Application (SPA) Framework for initial development
   * In the interest of learning Rails MVC, this application will not be using a front-end framework as
-  I believe it to be more important to show competancy in Ruby, Rails and Cofeescript.  If I am able to 
+  I believe it to be more important to show competency in Ruby, Rails and Cofeescript.  If I am able to 
   meet other goals then I would consider AngularJS or Angular / TypeScript which I have more familiarity 
   with or React (JSX/TSX) which I am less familiar with but have recently started building a new website 
   using Dotnet Core 2, React/TypeScript/Redux.
@@ -25,7 +25,18 @@ An explaination of some choices made during this project
   management and other features it should offer a very clean flow for development.
   * Familiarity with this tool is also an obvious choice for me
 
-4. Architectural Consideration - ?
+4. Database Considerations - MongoDB
+  * Sqlite 3 - uses the ActiveRecord ORM and is default to Rails, I would like to gain experience using
+  ActiveRecord and DB migrations, however it is less of a priority considering I have extensive experience
+  with similar RDMS and ORM's which also use the concept of migrations.
+  * MongoDB - Being Object based rather than relational may present issues with ActiveRecord, however
+  this seems like a popular choice for Ruby and I favor using this database because I have worked with it
+  in the past but can benefit from more experience.
+   - Mongoid vs MongoMapper - These seem to be the 2 front runners for an ORM'ish database connector in 
+   Ruby applications.  I have decided to try Mongoid, primarily because I am hearing that it has better
+   performance over MongoMapper.
+
+5. Architectural Consideration - ?
   * Containers
     * MongoDB - Store data related to users
   - Message Queue Based
@@ -45,8 +56,15 @@ An explaination of some choices made during this project
         - Presentation
 
 5. Jenkins CI
-  * If possible I will setup some very basic build automation to build and deploy a container
-  to a very underpowered and overworked bare-metal Ubuntu server which lives in my home office closet
+  * After succeeding in setting up a new instance of Jenkins and build agents which are
+  working well with Docker commands on my server, I decided to implement a CI environment
+  which will automatically deploy changes from GitHub to my home server.
+
+6. Session, Cache & Http Cache
+  * To support these features, while allowing the possibility of switching users and/or 
+  caching across multiple load balanced nodes, I would like to setup Redis and a gem
+  to serve as middleware for these features.
+  
 
 ## Goals & Tasks
 

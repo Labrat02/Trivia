@@ -2,12 +2,10 @@
 # line endings are converted to match the system on pull/push
 Layout/EndOfLine:
   Enabled: false
-#  EnforcedStyle: lf
 
 # No opinion of this style at this time
 Style/StringLiterals:
   Enabled: false
-#  EnforcedStyle: double_quotes
 
 # Good code standards and naming conventions are often better
 # than unneccesary documentation.

@@ -4,6 +4,12 @@ Layout/EndOfLine:
   Enabled: false
 #  EnforcedStyle: lf
 
-# I prefer double unless single needed
+# No opinion of this style at this time
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  Enabled: false
+#  EnforcedStyle: double_quotes
+
+# Good code standards and naming conventions are often better
+# than unneccesary documentation.
+Style/Documentation:
+  Enabled: false

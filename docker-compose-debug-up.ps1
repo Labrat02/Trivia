@@ -6,7 +6,7 @@ if ([System.IO.Directory]::Exists($t)) {
     #  -ErrorAction Continue
     Write-Host $DeleteResult -ForegroundColor "red"
 }
-$dockerComposeCommand = "docker-compose -f $composeFile up -d --remove-orphans 2>&1"
+$dockerComposeCommand = "docker-compose -f $composeFile up -d --build --remove-orphans 2>&1"
 Write-Host "Executing: $dockerComposeCommand`r`n" -ForegroundColor "Green"
 cmd.exe /c $dockerComposeCommand | Tee-Object -FilePath $l -Append
 Write-Host "`r`n#`r`n# To view output of container type: `r`n#`r`n`r`n"

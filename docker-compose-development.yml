@@ -5,11 +5,11 @@ services:
     ports: 
       - "27017:27017"
     volumes: 
-      - mongo-debug-data:/data/db
+      - mongo-development-data:/data/db
   web:
     build: .
     image: labrat/trivia:debug
-    command: bundle exec bin/rails s -p 3000 -b '0.0.0.0' -e development -- rdebug-ide --host 0.0.0.0 --port 1234 --dispatch-port 26162
+    command: bundle exec bin/rails s -p 3000 -b '0.0.0.0' -e development
     volumes:
       - .:/myapp
     ports:
@@ -19,4 +19,4 @@ services:
     depends_on:
       - mongo_db
 volumes: 
-  mongo-debug-data:
+  mongo-development-data:

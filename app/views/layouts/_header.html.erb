@@ -1,0 +1,40 @@
+  <nav class='navbar navbar-inverse'>
+
+    <h1 class="logo-brand">Trivia Planet</h1>
+    <p>Your place for endless Trivia</p>
+
+    <div class='navbar-header'>
+        <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+        </button>
+    </div>
+    <!-- <div class='clearfix'></div> -->
+    <div class='navbar-collapse collapse'>
+        <ul class='nav navbar-nav navbar-right'>
+            <li>
+                <%= link_to(root_path) do %>
+                    <span class="glyphicon glyphicon-home"></span> Home
+                <% end %>
+            </li>
+            <li>
+                <%= link_to(root_path) do %>
+                    <span class="glyphicon glyphicon-question-sign"></span> About
+                    <% end %>
+            </li>
+
+            <% if user_signed_in? %>
+                <li>
+                    <%= link_to(destroy_user_session_path, method: :delete) do %>
+                        <span class="glyphicon glyphicon-log-out"></span> Log Out
+                    <% end %>
+                </li>
+            <% end %>
+
+        </ul>
+        
+    </div>
+</nav>
+

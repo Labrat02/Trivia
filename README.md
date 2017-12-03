@@ -64,6 +64,9 @@ An explanation of some choices made during this project
   * To support these features, while allowing the possibility of switching users and/or 
   caching across multiple load balanced nodes, I would like to setup Redis and a gem
   to serve as middleware for these features.
+
+7. Bootstrap
+  * For simple reasons of speed and efficiency
   
 
 ## Goals & Tasks
@@ -92,20 +95,27 @@ An explanation of some choices made during this project
   * Rails: 5.1.4
   * Bundler: 1.16.0
 
+* *User Authentication*
+  * Devise Gem Information: https://suvankar.svbtle.com/devise-and-mongoid-in-rails-4
+
 * Configuration
 
-* Database creation
-
-TBD.  MongoDB
-
-* Database initialization
+* Database: MongoDB 
+  * Mongoid https://docs.mongodb.com/mongoid/master/
 
 * How to run the test suite
+  * TBD
 
 * Services (job queues, cache servers, search engines, etc.)
+
+  * Redis?
+  * Session, Cache, HttpCache
 
 * Deployment instructions
   
   - Continuous Integration/Deployment via Jenkins
+  
+  - Docker Local Development Environment
+  - ...
 
 * ...

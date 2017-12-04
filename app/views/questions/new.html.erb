@@ -1,0 +1,23 @@
+<h2>Add Question</h2>
+
+<%= form_with scope: :question, url: questions_path,  local: true do |f| %>
+  <h3>Ask your question below</h3> 
+  <div class="field form-group">
+    <%= f.label :question_text %><br />
+    <%= f.text_area :question_text, cols: 80, rows: 5, class: 'form-control', autofocus: true %>
+  </div>
+
+  <h3>Answers</h3>
+
+  <div class="field form-group">
+    <%= f.label :question_reveal_text, "Results Message" %><br />
+    <%= f.text_area :question_reveal_text, cols: 80, rows: 10, class: 'form-control' %>
+ </div>
+
+  
+  <div class="actions">
+    <%= f.submit "Save and Continue", class: "btn btn-warning" %>
+    <%= link_to "Finish", default_index_path, class: "btn btn-info" %>
+  </div>
+
+<% end %>

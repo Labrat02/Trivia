@@ -1,0 +1,11 @@
+// Place all the styles related to the trivia controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+*=require: 
+*/
+$trivia-branding-color: rgb(206, 114, 1);
+
+.question {
+    color: $trivia-branding-color
+}

@@ -11,3 +11,9 @@ Style/StringLiterals:
 # than unneccesary documentation.
 Style/Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false

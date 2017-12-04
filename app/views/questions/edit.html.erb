@@ -1,0 +1,23 @@
+<h2>Add Question#edit</h2>
+<p>...</p>
+
+<%= form_with scope: :question, url: questions_path,  local: true do |f| %>
+  <h3>Question</h3> 
+  <div class="field">
+    <%= f.label :question_text %><br />
+    <%= f.text_field :question_text, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :question_reveal_text %><br />
+    <%= f.text_field :question_reveal_text %>
+ </div>
+
+  <h3>Answers</h3>
+
+  
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-warning" %>
+    <%= link_to "Cancel", default_index_path, class: "btn btn-info" %>
+  </div>
+
+<% end %>

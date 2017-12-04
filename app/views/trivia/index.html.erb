@@ -1,0 +1,22 @@
+<h2>Trivia List</h2>
+
+FILTER BY TAGS, ANSWERED_BOOLEAN, LAZY_LOADING
+
+<% if !@trivia_questions.nil? %>
+    <ul class="list-group">
+    <% @trivia_questions.each do |t| %>
+        <li class="list-group-item">
+            <%= t.question_text.truncate(260, separator: ' ') %><br />
+            <%= link_to(controller: "trivia", action: "answer", id: t.id ) do %>
+                <span class="glyphicon glyphicon-edit"></span> Answer This
+            <% end %>
+        </li>
+    <% end %>
+
+    <% if @trivia_questions.count > 3 %>
+        <li class="list-group-item">
+            <%= link_to "...More!", trivia_index_path %>
+        </li>
+    <% end %>
+    </ul>
+<% end %>

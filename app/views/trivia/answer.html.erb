@@ -1,0 +1,22 @@
+<h2 class="question"><%= @trivia_question.question_text %></h2>
+
+<%= form_with scope: :question, url: questions_path,  local: true do |f| %>
+  <p>Choose your answer</p>
+  <ul class="list-group">
+    <% @trivia_question.answers.each_with_index do |a, index| %>
+        <li class="list-group-item">
+            
+            <%= radio_button_tag 'question_answer', index, false, class:'float-left', id: 'answer' + index.to_s %>
+            <label for="<%= 'answer' + index.to_s %>" class=""><%= a.answer_text %></label>
+        </li>
+    <% end %>
+  </ul>
+  <p>DISPLAY TAGS</p>
+  <p>RANK</p>
+
+  <div class="actions">
+    <%= f.submit "Submit & Continue", class: "btn btn-warning" %>
+    <%= link_to "Done", trivia_index_path, class: "btn btn-info" %>
+  </div>
+
+<% end %>

@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- * require_tree .
+ *=require_tree .
  * require_self
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
@@ -20,32 +20,34 @@
 
 $font-stack:    Helvetica, sans-serif;
 //$primary-color: rgb(218, 190, 190);
-$background-color: rgb(239, 239, 239);
-$container-background-color: rgb(173, 173, 173);
-$container-border-color: rgb(119, 119, 119);
+$background-color: rgb(238, 221, 211);
+$container-background-color: rgb(231, 229, 229);
+$container-border-color: rgba(119, 119, 119, 0.493);
  
 $trivia-branding-color: rgb(206, 114, 1);
 $trivia-branding-highlight: rgb(39, 28, 5);
 // $width-name: max-device-width;
 $target-width: 767px;
 
+html,
 body {
   font-family: $font-stack;
   background-color: $background-color;
   width: 100%;
+  height: 100%;
 }
 .container {
     border-left: 1px solid $container-border-color;
     border-right: 1px solid $container-border-color;
     background-color: $container-background-color;
 
-    position: fixed;
+    position: absolute;
     top: 0;
-    left:0;
-    right:0;
-    height: 100%;
-    width: 90%;
+    min-height: 100% !important;
+    left: 0;
+    right: 0;
     margin: 0 auto;
+    // z-index: 99;
 }
 header {
     position: absolute;
@@ -57,12 +59,32 @@ header {
     z-index: 100;
     
     // Logo
-     h1.logo-brand {
+    #branding {
         float:left;
-        margin: 20px 0;
-        padding: 5px;
-        color: $trivia-branding-color;
-     }
+        width: 220px;
+        height: 100px;
+
+        h1.logo {
+            margin: 10px 0 0 10px;
+            padding: 5px;
+            height: 60px;
+            color: black;
+            background-color: $trivia-branding-color;
+            
+            a:link, a:visited {
+                color: black;
+                text-decoration: none;
+            }
+        }
+        .tagline {
+            display: block;
+            height: 1.5em;
+            margin:  2px 0 0 10px;
+            font-weight: bold;
+            text-align: right;
+            color: $trivia-branding-color;
+        }
+    }
 }
 
 .navbar {
@@ -74,7 +96,28 @@ header {
     .container {
         padding-top: 100px;
     }
+    #branding {
+        width: 110px;
+        height: 50px;
 
+        font-size: 14px;
+
+        h1.logo {
+            margin: 5px 0 0 5px;
+            padding: 2px;
+            height: 30px;
+            color: black;
+            background-color: $trivia-branding-color;
+            
+            a:link, a:visited {
+                color: black;
+                text-decoration: none;
+            }
+        }
+        .tagline {
+            font-weight: 10px;
+        }
+    }
     #message {
         position: absolute;
         top: 0;
@@ -103,7 +146,10 @@ header {
         padding-top: 120px;
     }
     .navbar-header {
-            display:none;
+        display:none;
+    }
+    .navbar-collapse {
+        float:right;
     }
     #message {
         position: absolute;

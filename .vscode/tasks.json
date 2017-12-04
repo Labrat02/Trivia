@@ -4,28 +4,83 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "CleanTmpFolder",
-            "identifier": "CleanTmpFolder",
+            "label": "Launch IRB Console",
+            "identifier": "launch-irb",
             "type": "shell",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": false,
-                "panel": "shared"
-            },
-            "linux": {
-                "command": "rm",
-                "args": [
-                    "-rf", "${workspaceFolder}/tmp"
-                ]
+                "focus": true,
+                "panel": "new"
             },
             "windows": {
-                "command": "Remove-Item",
-                "args": [
-                    "${workspaceFolder}\\tmp", "-Force", "-Recurse", "-ErrorAction", "SilentlyContinue"
-                ]
-            }
+                "command": "docker exec -ti trivia_web_1 rails c"
+                //,"command": "rails c"
+            },
+            "problemMatcher": [],
+            "promptOnClose": false
         },
+        {
+            "label": "DB Seed Remote",
+            "identifier": "launch-remote-seed",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            },
+            "windows": {
+                "command": "docker exec trivia_web_1 rake db:seed"
+                //,"command": "rails c"
+            },
+            "problemMatcher": [],
+            "promptOnClose": false
+        },
+        {
+            "label": "Remote MongoDB Console",
+            "identifier": "launch-mongo-remote",
+            "type": "shell",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            },
+            "windows": {
+                "command": "docker exec -ti trivia_mongo_db_1 mongo"
+            },
+            "problemMatcher": [],
+            "promptOnClose": false
+        },
+        // {
+        //     "label": "CleanTmpFolder",
+        //     "identifier": "CleanTmpFolder",
+        //     "type": "shell",
+        //     "presentation": {
+        //         "echo": true,
+        //         "reveal": "always",
+        //         "focus": false,
+        //         "panel": "shared"
+        //     },
+        //     "linux": {
+        //         "command": "rm",
+        //         "args": [
+        //             "-rf",
+        //             "${workspaceFolder}/tmp"
+        //         ]
+        //     },
+        //     "windows": {
+        //         "command": "Remove-Item",
+        //         "args": [
+        //             "${workspaceFolder}\\tmp",
+        //             "-Force",
+        //             "-Recurse",
+        //             "-ErrorAction",
+        //             "SilentlyContinue"
+        //         ]
+        //     }
+        // },
         {
             "label": "Docker-Compose-Debug",
             "type": "shell",
@@ -35,25 +90,13 @@
                 "focus": true,
                 "panel": "shared"
             },
-            //"dependsOn": "CleanTmpFolder",
-            // "osx": {
-            //     "command": "docker-compose",
-            //     "args": [
-            //         "-f", "docker-compose-debug.yml", "up", "-d", "--build", "--remove-orphans",
-            //         "&& rm -rfd ${workspaceFolder}/tmp"
-            //     ]
-            // },
             "windows": {
                 "command": "powershell",
                 "args": [
-                    "${workspaceFolder}\\docker-compose-debug-up.ps1", "${workspaceFolder}\\tmp"
+                    "${workspaceFolder}\\docker-compose-debug-up.ps1",
+                    "${workspaceFolder}\\tmp"
                 ]
-                // "command": "docker-compose",
-                // "args": [
-                //     "-f", "docker-compose-debug.yml", "up", "-d", "--build", "--remove-orphans"
-                // ]
             }
-            
         }
     ]
 }

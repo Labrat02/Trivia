@@ -1,5 +1,19 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
+
+  has_many :questions
+  has_many :answers
+
+  field :first_name, type: String
+  field :last_name, type: String
+  field :agree_terms, type: Boolean, default: false
+
+  field :points, type: Integer
+
+  #
+  #  GENRATED BY DEVISE
+  #
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

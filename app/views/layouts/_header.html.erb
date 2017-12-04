@@ -1,7 +1,11 @@
   <nav class='navbar navbar-inverse'>
 
-    <h1 class="logo-brand">Trivia Planet</h1>
-    <p>Your place for endless Trivia</p>
+    <div id="branding">
+        <h1 class="logo">
+            <%= link_to("Trivia Planet", root_path) %>
+        </h1>
+        <span class="tagline">Your place for endless Trivia</span>
+    </div>
 
     <div class='navbar-header'>
         <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>

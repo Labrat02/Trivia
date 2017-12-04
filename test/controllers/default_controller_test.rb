@@ -10,10 +10,4 @@ class DefaultControllerTest < ActionDispatch::IntegrationTest
     get default_about_url
     assert_response :success
   end
-
-  test "should get start_here" do
-    get default_start_here_url
-    assert_response :success
-  end
-
 end

@@ -1,4 +1,4 @@
-<h2>Add Question</h2>
+<h2>Add New Question</h2>
 
 <%= form_with scope: :question, url: questions_path,  local: true do |f| %>
   <h3>Ask your question below</h3> 
@@ -9,11 +9,34 @@
 
   <h3>Answers</h3>
 
+  <div class="answer_options">  
+      <ul id="answer_list" class="list-group">
+        <% @question.answers.each_with_index do |a, index| %>
+        <li class="list-group-item">
+            <input type="text" name="answer-option-<%= index %>" value="<%= a.answer_text %>" class="form-control" />
+            <div class="button-group">
+              <a href="#" class="btn set_answer">
+                <span class="glyphicon glyphicon-edit"></span> Set as Correct
+              </a>
+              <a href="#" class="btn remove_answer">
+                <span class="glyphicon glyphicon-delete"></span> Remove
+              </a>
+            </div>
+        </li>
+        <% end %>
+      </ul>
+
+      <a href="#" class="btn add_answer">Add An Answer Option</a>
+      <%= f.hidden_field :correct_answer_index, id: 'correct_answer_index' %>
+  </div>
+  <p></p>
+
   <div class="field form-group">
-    <%= f.label :question_reveal_text, "Results Message" %><br />
+    <%= f.label :question_reveal_text, "Reveal Text: Give more information about this question AFTER it is answered." %><br />
     <%= f.text_area :question_reveal_text, cols: 80, rows: 10, class: 'form-control' %>
  </div>
 
+ 
   
   <div class="actions">
     <%= f.submit "Save and Continue", class: "btn btn-warning" %>

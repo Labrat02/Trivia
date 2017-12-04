@@ -6,7 +6,8 @@ class Question
   has_many :answer_submitions, class_name: 'Answer'
   belongs_to :question_user, class_name: 'User'
 
-  field :correct_answer_index, type: Integer, default: 0
+  field :tags, type: Array, default: []
+  field :correct_answer_index, type: Integer, default: -1
   field :question_text, type: String
   field :question_reveal_text, type: String
 end

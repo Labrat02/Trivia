@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
+// Automatically hide alert message
 $(function(){
     $(".alert, #message").click(function(e){
         clearTimeout(alertTimer);
@@ -32,9 +33,8 @@ $(function(){
     }, 4000);
 });
 
+// For Question Add/Edit Form
 $(function(){
-// FIX DYNAMIC ELEMENT EVENT PROBLEM 
-
     $(".add_answer").on('click', function(e){
         var $listGroup = $(".answer_options .list-group");
         var newListGroupItem = getNewAnswer(
@@ -42,7 +42,6 @@ $(function(){
         );
         $listGroup.append(newListGroupItem);
 
-        jQueryEventSetup();
         e.preventDefault();
     });
     $(".answer_options").on('click', ".set_answer", function(e){
@@ -59,8 +58,9 @@ $(function(){
 
         // check the selected value, if equal or higher than index then recalculate it and update hidden element
         if (val && val >= thisIndex) {
-            val = (val === thisIndex) ? val = -1 : val--;
-            $correctAnswerIndex.val(val);
+            val = (parseInt(val) === thisIndex) ? val = -1 : --val;
+            console.log(val);
+            $correctAnswerIndex.val(val.toString());
         }
 
         $(this).closest('.list-group-item').remove();
@@ -72,7 +72,8 @@ $(function(){
             liGroupItem.className = 'list-group-item';
         
         var answerText = document.createElement('input');
-            answerText.type = 'text'
+            answerText.className = 'form-control';
+            answerText.type = 'text';
             answerText.name = 'answer-option-' + indx;
 
         liGroupItem.appendChild(answerText);
@@ -99,10 +100,4 @@ $(function(){
         return buttonGroup;
     }
 
-    function removeAt(){
-        reIndexAnswers();
-    }
-
-    function reIndexAnswers(){
-    }
 });

@@ -28,19 +28,19 @@ user2 = User.create(
 )
 
 Question.create(
-  owner: user2,
-  question_text: 'Asadsadquestion for the ages...?',
+  question_user: user2,
+  question_text: 'How much wood could a woodchuck chuck, if a woodchuck could chuck wood?',
   answers: [
-    QuestionAnswer.new(answer_text: 'Wosadsadot!'),
-    QuestionAnswer.new(answer_text: 'Whysadsad Not?'),
-    QuestionAnswer.new(answer_text: 'Whysadsad Not?')
+    QuestionAnswer.new(answer_text: 'NOT THIS AGAIN!'),
+    QuestionAnswer.new(answer_text: 'Why Why WHY??'),
+    QuestionAnswer.new(answer_text: 'He could chuck all the wood a woodchuck could chuck if a woodchuch could chuck wood!')
   ],
-  question_reveal_text: '',
+  question_reveal_text: 'It\'s over, you can go home now!',
   correct_answer_index: '2'
 )
 
 Question.create(
-  owner: user1,
+  question_user: user1,
   question_text: 'What part did Adam West play in the 1986 zombie film "Zombie Nightmare"?',
   answers: [
     QuestionAnswer.new(answer_text: 'Slasher'),
@@ -52,7 +52,7 @@ Question.create(
   correct_answer_index: '3'
 )
 Question.create(
-  owner: user1,
+  question_user: user1,
   question_text: 'Who played the zombie who shot someone in "Day of the Dead" (1985)?',
   answers: [
     QuestionAnswer.new(answer_text: 'Sherman Howard'),
@@ -64,7 +64,7 @@ Question.create(
   correct_answer_index: '2'
 )
 Question.create(
-  owner: user2,
+  question_user: user2,
   question_text: 'Let\'s go back to 1932 for this first flick, a grainy black-and-white entry which was produced and directed by Victor and Edward Halperin. Starring Bela Lugosi, Madge Bellamy and Robert W. Frazer and set in Haiti, it is unlike the zombie flicks of today. These original zombies could be trained to serve you, not just mindlessly try to make you the serving. What is the name of this acknowledged "first" zombie movie?',
   answers: [
     QuestionAnswer.new(answer_text: 'Wosadsadot!'),

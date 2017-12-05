@@ -18,8 +18,16 @@
 //= require turbolinks
 //= require_tree .
 
+// https://stackoverflow.com/questions/17600093/rails-javascript-not-loading-after-clicking-through-link-to-helper
+var on_ready = function(){
+    load_alert_fadeout();
+    questions_add_edit_init();
+}
+$(on_ready);
+$(document).on('turbolinks:load', on_ready);
+
 // Automatically hide alert message
-$(function(){
+function load_alert_fadeout(){
     $(".alert, #message").click(function(e){
         clearTimeout(alertTimer);
         $('#message').fadeTo(500, 0).slideUp(500, function(){
@@ -31,10 +39,10 @@ $(function(){
             $(this).remove();
         });
     }, 4000);
-});
+}
 
 // For Question Add/Edit Form
-$(function(){
+function questions_add_edit_init(){
     $(".add_answer").on('click', function(e){
         var $listGroup = $(".answer_options .list-group");
         var newListGroupItem = getNewAnswer(
@@ -100,4 +108,4 @@ $(function(){
         return buttonGroup;
     }
 
-});
+}

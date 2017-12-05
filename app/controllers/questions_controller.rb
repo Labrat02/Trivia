@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     @question.question_user = current_user
 
     params.each_pair do |k, v|
-      unless (k =~ /answer_option_(.*)/).nil?
+      unless (k =~ /answer-option(.*)/).nil?
         @question.answers.push QuestionAnswer.new(answer_text: v.to_s)
       end
     end

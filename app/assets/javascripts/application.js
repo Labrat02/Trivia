@@ -23,7 +23,7 @@ var on_ready = function(){
     load_alert_fadeout();
     questions_add_edit_init();
 }
-$(on_ready);
+//$(on_ready);
 $(document).on('turbolinks:load', on_ready);
 
 // Automatically hide alert message
@@ -46,8 +46,10 @@ function questions_add_edit_init(){
     $(".add_answer").on('click', function(e){
         var $listGroup = $(".answer_options .list-group");
         var newListGroupItem = getNewAnswer(
-            $listGroup.find("[name|=answer-option]").length
+            //$listGroup.find("[name|=answer-option]").length
+            $listGroup.find("[name*=question]").length
         );
+        console.log($listGroup.find("[name*=question]"))
         $listGroup.append(newListGroupItem);
 
         e.preventDefault();
@@ -82,7 +84,8 @@ function questions_add_edit_init(){
         var answerText = document.createElement('input');
             answerText.className = 'form-control';
             answerText.type = 'text';
-            answerText.name = 'answer-option-' + indx;
+            // answerText.name = 'answer-option-' + indx;
+            answerText.name = 'question[answers][]';
 
         liGroupItem.appendChild(answerText);
         liGroupItem.appendChild(getButtonGroup());

@@ -11,9 +11,9 @@
 
   <div class="answer_options">  
       <ul id="answer_list" class="list-group">
-        <% @question.answers.each_with_index do |a, index| %>
+        <% @question.answers.each do |a| %>
         <li class="list-group-item">
-            <input type="text" name="answer-option-<%= index %>" value="<%= a.answer_text %>" class="form-control" />
+            <input type="text" name="question[answers][]" value="<%= a.answer_text %>" class="form-control" />
             <div class="button-group">
               <a href="#" class="btn set_answer">
                 <span class="glyphicon glyphicon-edit"></span> Set as Correct
@@ -26,18 +26,16 @@
         <% end %>
       </ul>
 
-      <a href="#" class="btn btn-default add_answer">Add An Answer Option</a>
-      <%= f.hidden_field :correct_answer_index, id: 'correct_answer_index' %>
+      <a href="#" class="btn add_answer">Add An Answer Option</a>
   </div>
   <p></p>
 
   <div class="field form-group">
     <%= f.label :question_reveal_text, "Reveal Text: Give more information about this question AFTER it is answered." %><br />
     <%= f.text_area :question_reveal_text, cols: 80, rows: 10, class: 'form-control' %>
- </div>
+  </div>
 
- 
-  
+  <%= f.hidden_field :correct_answer_index, id: 'correct_answer_index' %>
   <div class="actions">
     <%= f.submit "Save and Continue", class: "btn btn-warning" %>
     <%= link_to "Finish", default_index_path, class: "btn btn-info" %>

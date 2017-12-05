@@ -40,7 +40,7 @@
             <% @my_questions.each do |q| %>
                 <li class="list-group-item">
                     <h4><%= q.question_text %></h4>
-                    <%= link_to(controller: "questions", action: "edit", id: q.id, class: 'btn') do %>
+                    <%= link_to(controller: "questions", action: "edit", id: q.id ) do %>
                         <span class="glyphicon glyphicon-edit"></span> Edit
                     <% end %>
                 </li>

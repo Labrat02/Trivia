@@ -13,10 +13,8 @@ class QuestionsController < ApplicationController
     @question = Question.new(new_question_params)
     @question.question_user = current_user
 
-    params.each_pair do |k, v|
-      unless (k =~ /answer-option(.*)/).nil?
-        @question.answers.push QuestionAnswer.new(answer_text: v.to_s)
-      end
+    params[:question][:answers].each do |v|
+      @question.answers.push QuestionAnswer.new(answer_text: v)
     end
 
     @question.save!
@@ -33,11 +31,28 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    @question = Question.find(params[:id])
+
+    # // this is hacky, find a better way to map or handle checkboxes
+    answers = []
+    params[:question][:answers].each do |v|
+      answers.push QuestionAnswer.new(answer_text: v)
+    end
+    @question.answers = answers
+
+    @question.update(edit_question_params)
+
+    flash[:alert] = 'Update Successful!'
+    redirect_to questions_path
   end
 
   private
 
   def new_question_params
     params.require(:question).permit(:question_text, :question_reveal_text, :answers, :correct_answer_index)
+  end
+
+  def edit_question_params
+    params.require(:question).permit(:question_text, :question_reveal_text, :correct_answer_index)
   end
 end

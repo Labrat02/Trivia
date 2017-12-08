@@ -3,7 +3,7 @@ module TriviaHelper
   end
 
   def get_trivia_questions_current_user(id)
-    Question.not_in(owner_id: current_user.id).only(:id, :question_text)
+    Question.not_in(question_user: current_user).only(:id, :question_text)
   end
 
   def get_trivia_question(id)

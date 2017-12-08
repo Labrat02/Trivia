@@ -12,11 +12,5 @@ FILTER BY TAGS, ANSWERED_BOOLEAN, LAZY_LOADING
             <% end %>
         </li>
     <% end %>
-
-    <% if @trivia_questions.count > 3 %>
-        <li class="list-group-item">
-            <%= link_to "...More!", trivia_index_path %>
-        </li>
-    <% end %>
     </ul>
 <% end %>

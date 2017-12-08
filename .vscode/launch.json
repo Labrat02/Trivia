@@ -30,6 +30,12 @@
             "request": "launch",
             "cwd": "${workspaceRoot}",
             "program": "${workspaceRoot}/bin/rails",
+            "windows": {
+                "program": "${workspaceRoot}/bin/rails",
+                "args": [
+                    "server", "-b","'localhost'"
+                ]
+            },
             "args": [
                 "server"
             ]

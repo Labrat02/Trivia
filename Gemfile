@@ -10,6 +10,11 @@ gem 'rails', '~> 5.1.4'
 # Use Mongoid as database without Active Record
 gem 'mongoid', '~> 6.2.1'
 # Used for User authentication
+# Windows 10 bug in bcrypt,
+#   Uninstall bcrypt-ruby and bcrypt gems to get rid of x86-mingw32 version and use bcrypt 3.1.11
+#   > gem uninstall bcrypt-ruby && gem uninstall bcrypt
+#   > gem install bcrypt --platform=ruby
+gem 'bcrypt', '~> 3.1.11', platforms: :ruby
 gem 'devise', '~> 4.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -34,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Add Bootstrap support
-#gem 'bootstrap', '~> 3.3.7'
+# gem 'bootstrap', '~> 3.3.7'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
